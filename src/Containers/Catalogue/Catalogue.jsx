@@ -1,8 +1,10 @@
 import { getProducts } from "../../Services/Products/products"
 import Card from "../../Components/Card"
 import { useState, useEffect } from "react"
+import styles from './Catalogue.module.scss'
 
 const Catalogue = () => {
+  
 
     const [items, setItems] = useState([]);
 
@@ -16,15 +18,10 @@ const Catalogue = () => {
     },[]);
 
     return (
-        <div>
-            <div>
-                <h3> Hello </h3>
-            </div>
-            <div>
-                {items.map((product) => {
-                    return <Card key={product.id} products={product}/>;
-                })}
-            </div>
+        <div className={styles.Catalogue}>
+            {items.map((product) => {
+                return <Card key={product.id} products={product}/>;
+            })}
         </div>
     )
 }

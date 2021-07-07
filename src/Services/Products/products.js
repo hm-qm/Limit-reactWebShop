@@ -19,3 +19,13 @@ export const getProducts = async () => {
     return products;
 };
 
+export const getProductById = async (id) => {
+    const collection = firestore.collection("Products").doc(id)
+
+    const itemData = await collection.get()
+
+    const productArr = [{id: itemData.id, ...itemData.data()}]
+
+    return productArr;
+}
+

@@ -1,0 +1,22 @@
+.Card {
+    width: 300px;
+    height: 335px;
+    border: 1px solid black;
+
+    &__image {
+        width: 258px;
+        height: 258px;
+    }
+
+    &__details {
+        height: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &_cart{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

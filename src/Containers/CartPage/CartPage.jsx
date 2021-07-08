@@ -6,7 +6,9 @@ const CartPage = () => {
 
     const { cart } = useContext(CartContext)
 
+    useEffect(() => {
 
+    },[cart])
 
     return (
         <div>
@@ -16,10 +18,10 @@ const CartPage = () => {
             })}
             </div>
             <div>
-                <span>Total price: {cart.reduce((acc, item) => {
-                    acc += (item.price*item.quantity)
-                    return ((Math.round(acc * 100)/100));
-                },0)}</span>
+                <span>Total price: AU$ {cart.reduce((acc, item) => {
+                    acc += (item.price*item.quantity);
+                    return (acc);
+                },0).toLocaleString("en-US")}</span>
             </div>
         </div>
     )

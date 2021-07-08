@@ -1,0 +1,46 @@
+@import '../../Assets/Partials/variables';
+
+.CartItem{
+    height: 116px;
+    width: 1000px;
+    padding: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+
+    &_left{
+
+        &__image{
+            height: 100px;
+            width: 100px;
+        }
+    }
+
+    &_center{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        &__name{
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: $text-primary-color;
+        }
+
+        &__variant{
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: $text-secondary-color;
+        }
+    }
+
+    &_right{
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}

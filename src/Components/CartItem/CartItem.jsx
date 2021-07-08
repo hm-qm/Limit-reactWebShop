@@ -1,6 +1,8 @@
 import Counter from "../Counter"
 import { useState, useEffect } from "react"
-import { updateCart } from "../../Services/Cart/cart"
+import { updateCart, removeFromCart } from "../../Services/Cart/cart"
+import { Link } from "react-router-dom"
+import styles from "./CartItem.module.scss"
 
 
 const CartItem = ({product}) => {
@@ -14,6 +16,10 @@ const CartItem = ({product}) => {
         await updateCart(product.CartId, {quantity: itemQuantity});
     }
 
+    const handleClick = () => {
+        removeFromCart(product.CartId)
+    }
+
     useEffect(() => {
         fetchQuantity();
     },[])
@@ -23,17 +29,22 @@ const CartItem = ({product}) => {
     },[itemQuantity])
 
     return (
-        <div>
-            <div>
-                <h2>{product.itemName}</h2>
-                <p>{product.variant}</p>
+        <div className={styles.CartItem}>
+            <div className={styles.CartItem_left}>
+                <Link to={`/product/${product.id}`}><img className={styles.CartItem_left__image} src={product.imageLink} alt="" /></Link>
             </div>
-            <div>
-                <span>Quantity: {product.quantity}</span>
-                <Counter onChange={setItemQuantity} value={itemQuantity} />
+            <div className={styles.CartItem_center}>
+                <h2 className={styles.CartItem_center__name}>{product.itemName}</h2>
+                <span className={styles.CartItem_center__variant}>{product.variant}</span>
             </div>
-            <div>
-                <button>Remove</button>
+            <div className={styles.CartItem_right}>
+                <div >
+                    <h3>AU$ {(product.price).toLocaleString("en-US")}</h3>
+                    <span>Quantity <Counter onChange={setItemQuantity} value={itemQuantity} /></span>
+                </div>
+                <div>
+                    <button onClick={handleClick}><i class="fas fa-trash-alt"></i></button>
+                </div>                
             </div>
         </div>
     )

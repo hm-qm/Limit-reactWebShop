@@ -19,13 +19,15 @@ const Card = ({products}) => {
 
     return (
         <div className={styles.Card}>
-            <img className={styles.Card__image} src={products.imageLink} alt="" />
-            <div className={styles.Card__details}>
-                <span><Link to={`/product/${products.id}`}>{products.itemName}</Link></span>
-                <span>{products.variant}</span>
-                <div className={styles.Card__details_cart}>
-                    <span>AU$ {(products.price).toLocaleString("en-US")}</span>
-                    <button onClick={handleClick}>add to cart</button>
+            <div className={styles.Card_top}>
+                <Link to={`/product/${products.id}`}><img className={styles.Card_top__image} src={products.imageLink} alt="" /></Link>
+            </div>
+            <div className={styles.Card_bottom}>
+                <span><Link className={styles.Card_bottom__name} to={`/product/${products.id}`}>{products.itemName}</Link></span>
+                <span className={styles.Card_bottom__variant}>{products.variant}</span>
+                <div className={styles.Card_bottom__cart}>
+                    <span className={styles.Card_bottom__price}>AU$ {(products.price).toLocaleString("en-US")}</span>
+                    <button className={styles.Card_bottom__cartButton} onClick={handleClick}><i class="fas fa-shopping-bag"></i></button>
                 </div>
             </div>
         </div>

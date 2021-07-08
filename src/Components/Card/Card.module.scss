@@ -1,22 +1,85 @@
+@import '../../Assets/Partials/variables';
+
 .Card {
     width: 300px;
-    height: 335px;
-    border: 1px solid black;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-    &__image {
+
+    &_top {
+        display: flex;
+        justify-content: center;
+
+        &__image {
         width: 258px;
         height: 258px;
+        }  
     }
 
-    &__details {
-        height: 35px;
+
+    &_bottom {
+        height: 100%;
+        padding: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
-        &_cart{
+        &__name {
+            text-decoration: none;
+            color: $text-primary-color;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.1s ease-in;
+            
+            &:hover {
+                color: $text-secondary-color;
+                text-decoration: underline;
+            }
+
+        }
+
+        &__variant {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: $text-secondary-color;
+            letter-spacing: 0.5px;
+        }
+
+        &__cart {
             display: flex;
             justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        &__price {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        &__cartButton {
+            position: relative;
+            top: 5px;
+            right: 5px;
+            font-size: 1.4rem;
+            background-color: transparent;
+            color: $text-secondary-color;
+            outline: none;
+            border: none;
+            transition: all 0.1s ease-in;
+
+            &:hover{
+                color: $text-primary-color;
+                cursor: pointer;
+            }
+
+            &:focus{
+                transition-duration: 0.2s;
+                color: green;
+            }
         }
     }
 }

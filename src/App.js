@@ -22,15 +22,29 @@ const App = () => {
             <Catalogue />
           </Route>
 
-          <Route path="/cart" component={CartPage}>
-            <CartPage />
+          <Route path="/cart">
+            <div className={styles.App_cartPage}>
+              <CartPage />
+            </div>
           </Route>
 
-          <Route path="/catalogue" component={Catalogue}>
+          <Route path="/catalogue" exact>
             <Catalogue />
           </Route>
 
-          <Route path="/product/:id" component={ProductPage}>
+          <Route path="/catalogue/clothing" exact>
+            <Catalogue category="clothing"/>
+          </Route>
+
+          <Route path="/catalogue/footwear" exact>
+            <Catalogue category="footwear"/>
+          </Route>
+
+          <Route path="/catalogue/accessories" exact>
+            <Catalogue category="accessories"/>
+          </Route>
+
+          <Route path="/product/:id">
             <ProductPage />
           </Route>
           

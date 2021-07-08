@@ -1,3 +1,5 @@
+@import '../../Assets/Partials/variables';
+
 *{
     box-sizing: border-box;
 }
@@ -30,26 +32,34 @@
         &__name{
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #1A1A1A;
+            color: $text-primary-color;
+            font-family: $font;
+            font-weight: 700;
             font-size: 2rem;
         }
 
         &__variant{
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #2c2c2c;
+            color: $text-secondary-color;
+            font-family: $font;
+            font-weight: 300;
             font: 1rem;
         }
 
         &__price{
-            color: #1A1A1A;
+            color: $text-primary-color;
             letter-spacing: 1px;
+            font-family: $font;
+            font-weight: 700;
             font: 1rem;
         }
 
         &__cartButton{
-            background-color: #1A1A1A;
+            background-color: $text-primary-color;
             color: white;
+            font-family: $font;
+            font-weight: 400;
             font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 2px;

@@ -1,6 +1,16 @@
+@import './Assets/Partials/variables';
+
 .App {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: $font;
+
+    &_cartPage{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

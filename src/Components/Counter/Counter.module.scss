@@ -1,0 +1,20 @@
+@import "../../Assets/Partials/variables";
+
+.Counter {
+    &_button{
+        color: $text-primary-color;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        margin: 0 5px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &_text{
+        color: $text-primary-color;
+    }
+
+}

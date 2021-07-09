@@ -4,8 +4,9 @@ import CartPage from './Containers/CartPage';
 import { CartProvider } from './Context/CartContext/CartProvider';
 import Nav from './Containers/Nav';
 import Hero from './Containers/Hero';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProductPage from './Containers/ProductPage/ProductPage';
+
 
 
 const App = () => {

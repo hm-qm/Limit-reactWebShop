@@ -3,19 +3,23 @@ import { addToCart } from "../../Services/Cart/cart";
 import styles from "./ProductInfo.module.scss"
 import Counter from "../Counter";
 
-const ProductInfo = ({ product }) => {
-    const [quantityValue, setQuantityValue] = useState(1);
 
+const ProductInfo = ({ product }) => {
+
+    const [itemQuantity, setItemQuantity] = useState(1)
+    const [buttonText, setButtonText] = useState("Add to Cart")
     const [ cartRecord, setCartRecord ] = useState(null)
 
     const handleClick = () => {
         addToCart(cartRecord);
+        setButtonText("Added!");
     }
+
 
     useEffect(() => {
         const {...record} = product;
-        setCartRecord({...record, quantity: 1});
-    }, [product])
+        setCartRecord({...record, quantity: itemQuantity});
+    }, [product, itemQuantity])
 
     return (
         <div className={styles.ProductInfo}>
@@ -27,10 +31,10 @@ const ProductInfo = ({ product }) => {
                 <span className={styles.ProductInfo_right__variant}>{product.variant}</span>
                 <h3 className={styles.ProductInfo_right__price}>AU$ {(product.price).toLocaleString("en-US")}</h3>
                 <div>
-                    <Counter onChange={setQuantityValue} value={quantityValue} />
+                    <Counter onChange={setItemQuantity} value={itemQuantity} />
                 </div>
                 <div>
-                    <button onClick={handleClick} className={styles.ProductInfo_right__cartButton}>Add to Cart</button>
+                    <button onClick={handleClick} className={styles.ProductInfo_right__cartButton}>{buttonText}</button>
                 </div>
             </div>
         </div>

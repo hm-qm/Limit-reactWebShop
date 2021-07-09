@@ -1,13 +1,14 @@
 import Counter from "../Counter"
 import { useState, useEffect } from "react"
-import { updateCart, removeFromCart } from "../../Services/Cart/cart"
+import { updateCart } from "../../Services/Cart/cart"
 import { Link } from "react-router-dom"
 import styles from "./CartItem.module.scss"
 
 
-const CartItem = ({ product }) => {
+
+const CartItem = ({ product, onDelete }) => {
     const [itemQuantity, setItemQuantity] = useState(1)
-    const [deleteState, setDeleteState] = useState(false)
+
 
     const fetchQuantity = () => {
         setItemQuantity(product.quantity);
@@ -17,15 +18,9 @@ const CartItem = ({ product }) => {
         await updateCart(product.CartId, {quantity: itemQuantity});
     }
 
-    const handleClick = () => {
-        removeFromCart(product.CartId)
-        setDeleteState(true)
-    }
-
-    useEffect(() => {
-        return () => {
-        }
-    }, [deleteState])
+    const handleDelete = (e) => {
+        onDelete(product.CartId);
+    };
 
 
     useEffect(() => {
@@ -51,7 +46,7 @@ const CartItem = ({ product }) => {
                     <span className={styles.CartItem_right_text__quantity}>Quantity <Counter onChange={setItemQuantity} value={itemQuantity} /></span>
                 </div>
                 <div className={styles.CartItem_right_button}>
-                    <button className={styles.CartItem_right_button__cartButton} onClick={handleClick}><i class="fas fa-trash-alt"></i></button>
+                    <button className={styles.CartItem_right_button__cartButton} onClick={handleDelete}><i class="fas fa-trash-alt"></i></button>
                 </div>                
             </div>
         </div>

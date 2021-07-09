@@ -1,0 +1,19 @@
+.Carousel{
+    display: flex;
+
+    &_header{
+
+    }
+
+    &_display{
+        display: flex;
+        &__button{
+
+        }
+
+        &__image{
+            height: 500px;
+            object-fit:fill;
+        }
+    }
+}

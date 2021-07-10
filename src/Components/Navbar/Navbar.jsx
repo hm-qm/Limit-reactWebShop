@@ -2,8 +2,7 @@ import { Link } from "react-router-dom"
 import styles from "./Navbar.module.scss"
 
 const Navbar = () => {
-
-    //Links should navigate to catalogue and show products of that specific category
+    
 
     return (
         <nav className={styles.Navbar}>

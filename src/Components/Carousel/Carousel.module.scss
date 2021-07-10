@@ -1,5 +1,6 @@
 .Carousel{
     display: flex;
+    height: 500px;
 
     &_header{
 
@@ -7,13 +8,26 @@
 
     &_display{
         display: flex;
+        justify-content: center;
+        align-items: center;
         &__button{
-
+            width: 100px;
+            height: 100%;
+            background-color: #fdfdfd00;
+            outline: none;
+            border: none;
+            font-size: 2rem;
+            color: #0000002c;
+            cursor: pointer;
         }
 
         &__image{
-            height: 500px;
-            object-fit:fill;
+            text-align: center;
+            height: 100%;
+            width: 60%;
+            object-fit: cover;
+            object-position: center;
+            transition: all 1s ease-in;
         }
     }
 }
